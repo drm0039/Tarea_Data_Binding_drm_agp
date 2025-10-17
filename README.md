@@ -1,4 +1,4 @@
-# Tarea: Data Binding (drm0039 / drm_agp)
+# Tarea: Data Binding (Daniel Rivera / Adán Gavira)
 
 Proyecto de ejemplo para la asignatura/tarea sobre Data Binding en Android. Implementa ejemplos básicos de Data Binding (y/o View Binding) para enlazar vistas con código Kotlin, reducir boilerplate y trabajar de forma más segura con layouts.
 
