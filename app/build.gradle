@@ -6,6 +6,10 @@ android {
     namespace 'com.example.tarea_data_binding_drm_agp'
     compileSdk 36
 
+    buildFeatures {
+        dataBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.tarea_data_binding_drm_agp"
         minSdk 24
