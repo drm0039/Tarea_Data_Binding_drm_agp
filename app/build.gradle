@@ -7,7 +7,7 @@ android {
     compileSdk 36
 
     buildFeatures {
-        dataBinding true
+        dataBinding false
     }
 
     defaultConfig {

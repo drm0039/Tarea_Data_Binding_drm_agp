@@ -1,59 +1,64 @@
 package com.example.tarea_data_binding_drm_agp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.Toast;
-
-
-import com.example.tarea_data_binding_drm_agp.databinding.ActivityMainBinding;
+import android.view.View;
+import android.widget.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
+    private EditText etNumber1, etNumber2;
+    private TextView tvResult;
+    private Button btnSumar, btnRestar, btnMultiplicar, btnDividir;
+    private ImageView imageView;
     private CalculatorModel calculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Inflar el layout con Data Binding
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
 
-        // Instanciar el modelo
+        // Vincular vistas manualmente (sin Data Binding)
+        etNumber1 = findViewById(R.id.etNumber1);
+        etNumber2 = findViewById(R.id.etNumber2);
+        tvResult = findViewById(R.id.tvResult);
+        btnSumar = findViewById(R.id.btnSumar);
+        btnRestar = findViewById(R.id.btnRestar);
+        btnMultiplicar = findViewById(R.id.btnMultiplicar);
+        btnDividir = findViewById(R.id.btnDividir);
+        imageView = findViewById(R.id.imageView);
+
+        // Crear instancia del modelo
         calculator = new CalculatorModel();
 
         // Asignar listeners a los botones
-        binding.btnSumar.setOnClickListener(v -> operar("+"));
-        binding.btnRestar.setOnClickListener(v -> operar("-"));
-        binding.btnMultiplicar.setOnClickListener(v -> operar("*"));
-        binding.btnDividir.setOnClickListener(v -> operar("/"));
+        View.OnClickListener listener = v -> operar(v.getId());
+        btnSumar.setOnClickListener(listener);
+        btnRestar.setOnClickListener(listener);
+        btnMultiplicar.setOnClickListener(listener);
+        btnDividir.setOnClickListener(listener);
     }
 
-    private void operar(String operacion) {
+    @SuppressLint("NonConstantResourceId")
+    private void operar(int id) {
         try {
-            // Obtener los números desde los EditText
-            double num1 = Double.parseDouble(binding.etNumber1.getText().toString());
-            double num2 = Double.parseDouble(binding.etNumber2.getText().toString());
+            double num1 = Double.parseDouble(etNumber1.getText().toString());
+            double num2 = Double.parseDouble(etNumber2.getText().toString());
             double resultado = 0;
 
-            // Lógica de operaciones usando el modelo
-            switch (operacion) {
-                case "+":
-                    resultado = calculator.sumar(num1, num2);
-                    break;
-                case "-":
-                    resultado = calculator.restar(num1, num2);
-                    break;
-                case "*":
-                    resultado = calculator.multiplicar(num1, num2);
-                    break;
-                case "/":
-                    resultado = calculator.dividir(num1, num2);
-                    break;
+            // Usamos if/else en lugar de switch para evitar errores
+            if (id == R.id.btnSumar) {
+                resultado = calculator.sumar(num1, num2);
+            } else if (id == R.id.btnRestar) {
+                resultado = calculator.restar(num1, num2);
+            } else if (id == R.id.btnMultiplicar) {
+                resultado = calculator.multiplicar(num1, num2);
+            } else if (id == R.id.btnDividir) {
+                resultado = calculator.dividir(num1, num2);
             }
 
-            // Mostrar el resultado
-            binding.tvResult.setText("Resultado: " + resultado);
+            tvResult.setText("Resultado: " + resultado);
 
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Por favor ingresa números válidos", Toast.LENGTH_SHORT).show();
@@ -62,3 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+
+
+
+
