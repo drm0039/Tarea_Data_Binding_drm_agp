@@ -1,0 +1,103 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <!-- Si más adelante quisieras enlazar variables, puedes declararlas aquí -->
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="8dp">
+
+            <!-- Imagen superior -->
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/perro_programando"
+                android:contentDescription="@string/app_name"
+                android:adjustViewBounds="true" />
+
+            <!-- Campo de entrada 1 -->
+            <EditText
+                android:id="@+id/etNumber1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número 1"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="8dp"
+                android:padding="10dp" />
+
+            <!-- Campo de entrada 2 -->
+            <EditText
+                android:id="@+id/etNumber2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número 2"
+                android:inputType="numberDecimal"
+                android:layout_marginBottom="16dp"
+                android:padding="10dp" />
+
+            <!-- Resultado -->
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resultado:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botones de operaciones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="4">
+
+                <Button
+                    android:id="@+id/btnSumar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnRestar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnMultiplicar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="×"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btnDividir"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="÷"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
