@@ -19,7 +19,7 @@ Proyecto de ejemplo para la asignatura/tarea sobre Data Binding en Android. Impl
 - Gradle (el wrapper incluido en el proyecto)
 
 ## Estructura recomendada del proyecto
-- app/src/main/java/... → código Kotlin (Activities, ViewModels, etc.)
+- app/src/main/java/... → código Java (MainActivity, ViewModels, etc.)
 - app/src/main/res/layout → layouts con `<layout>` para Data Binding
 - app/build.gradle → configuración del módulo (buildFeatures.dataBinding)
 
